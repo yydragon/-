@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yan.cloud.mapper.TEquipmentMapper">
+
+    <delete id="deleteBatchByIds" parameterType="java.util.List">
+        delete from t_equipment where equipment_seq in
+        <foreach collection="list" open="(" separator="," close=")" item="seq" index="index">
+            #{seq}
+        </foreach>
+    </delete>
+</mapper>
